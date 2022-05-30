@@ -1,6 +1,7 @@
 # BUIDING-AND-MINING-DATA-WAREHOUSE
 CSC12107 – INFORMATION SYSTEM FOR BUSINESS  INTELLIGENCE \
-Project description: 
+
+***Project description:*** 
 1. Build and analyze data about car accidents in the UK over 3-4 years using data from: \ 
   - UK Car Accidents 2005 - 2015 data (Students only takes data over 3-4 years, or
 the provided 2011-2014 data). \
