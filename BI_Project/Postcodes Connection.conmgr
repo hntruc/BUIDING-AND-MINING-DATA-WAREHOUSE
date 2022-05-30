@@ -1,0 +1,128 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Postcodes Connection"
+  DTS:DTSID="{57420D9A-C71B-40EA-AB70-E615B2DC3232}"
+  DTS:CreationName="FLATFILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Format="Delimited"
+      DTS:LocaleID="1033"
+      DTS:HeaderRowDelimiter="_x000D__x000A_"
+      DTS:ColumnNamesInFirstDataRow="True"
+      DTS:RowDelimiter=""
+      DTS:TextQualifier="_x003C_none_x003E_"
+      DTS:CodePage="1252"
+      DTS:ConnectionString="D:\Grade 4\DATH_data\postcodes.csv">
+      <DTS:FlatFileColumns>
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="postcode"
+          DTS:DTSID="{5152E6EB-1D90-4627-905B-0DFD73E198E9}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="latitude"
+          DTS:DTSID="{3A72CF22-6575-4DFB-B0A5-0464295B2955}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="longitude"
+          DTS:DTSID="{638B422C-621D-4505-A097-61EA0686AF5E}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="city"
+          DTS:DTSID="{75BEC2D9-107B-4326-B1E7-E67E11B1BFD3}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="county"
+          DTS:DTSID="{A207DDC0-CE8E-4CF2-8DD2-063B238AC04C}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="country_code"
+          DTS:DTSID="{1DE09917-3B5B-4018-9548-D4313303EBD2}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="country_name"
+          DTS:DTSID="{E0A1D578-D096-4769-8E3C-085DF2CB7431}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="region_code"
+          DTS:DTSID="{14F75CD2-93A2-49EC-98C0-D2EF99D7E277}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="region_name"
+          DTS:DTSID="{AD866341-F7C1-4A36-94BA-F3F7F214855A}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="createdate"
+          DTS:DTSID="{5420CC29-8983-4F81-A5A5-8B72AD00216A}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x002C_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="updatedate"
+          DTS:DTSID="{C2797046-7003-4DEF-84EB-D7B88CDEEA50}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnType="Delimited"
+          DTS:ColumnDelimiter="_x000D__x000A_"
+          DTS:MaximumWidth="512"
+          DTS:DataType="129"
+          DTS:TextQualified="True"
+          DTS:ObjectName="TrangThai"
+          DTS:DTSID="{B5947431-1C7F-47AA-8C27-97DF76FA5540}"
+          DTS:CreationName="" />
+      </DTS:FlatFileColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

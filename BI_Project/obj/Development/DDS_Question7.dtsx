@@ -1,0 +1,2763 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/8/2021 8:06:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-LATGDUJ"
+  DTS:CreatorName="DESKTOP-LATGDUJ\Jane Hwang"
+  DTS:DTSID="{904EF503-ACF9-42F0-A198-847B3388E4FB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{B1EF9199-5FBD-400B-ADB6-9A9B72EE7386}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_METADATA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{087B5C96-D958-4986-B792-09823E502276}"
+      DTS:ObjectName="DESKTOP-LATGDUJ.QLBI_METADATA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-LATGDUJ;Initial Catalog=QLBI_METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_NDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7B85F620-E76B-4058-A154-FC40AF4F7F06}"
+      DTS:ObjectName="DESKTOP-LATGDUJ.QLBI_NDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-LATGDUJ;Initial Catalog=QLBI_NDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C8EEDC4B-EA20-42EA-8748-C4BB2374AED0}"
+      DTS:ObjectName="DESKTOP-LATGDUJ.QLBI_Ques7_DDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-LATGDUJ;Initial Catalog=QLBI_Ques7_DDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{161EFFD1-4F85-4B07-982E-6BC14A2897E8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CET_DDSQues7">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1990</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{17A861DE-A040-4FBF-B849-1F1D439B5769}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LSET_DDSQues7">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1990</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow For Fact Table in DDS_Question7"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow For Fact Table in DDS_1 and 2"
+      DTS:DTSID="{997af345-4ce3-4039-8875-be59ccf894cf}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow For Fact Table in DDS_Question7"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Inputs[Aggregate Input 1].Columns[Vehicle_Type]"
+                      cachedDataType="i4"
+                      cachedName="Vehicle_Type"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Inputs[Aggregate Input 1].Columns[Journey_Purpose_of_Driver]"
+                      cachedDataType="i4"
+                      cachedName="Journey_Purpose_of_Driver"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Vehicle_Type]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Vehicle_Type]"
+                      name="Vehicle_Type">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Type]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Journey_Purpose_of_Driver]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Journey_Purpose_of_Driver]"
+                      name="Journey_Purpose_of_Driver">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Number_of_Accidents]"
+                      dataType="ui8"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Number_of_Accidents]"
+                      name="Number_of_Accidents">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow For Fact Table in DDS_Question7\0:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Fact_Table]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Fact_Table]) [refTable]
+where [refTable].[SKVehicles_Type] = ? and [refTable].[SKDim_Journey_Purpose_Des] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SKFact" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SKVehicles_Type" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SKDim_Journey_Purpose_Des" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Number_of_Accidents" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="create_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="update_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Type]};#{Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Inputs[Lookup Input].Columns[Vehicle_Type]"
+                      cachedDataType="i4"
+                      cachedName="Vehicle_Type"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Type]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SKVehicles_Type</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Inputs[Lookup Input].Columns[Journey_Purpose_of_Driver]"
+                      cachedDataType="i4"
+                      cachedName="Journey_Purpose_of_Driver"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SKDim_Journey_Purpose_Des</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Create new values for create_date and update_date"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Output].Columns[new_createdate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Output].Columns[new_createdate]"
+                      name="new_createdate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Output].Columns[new_updatedate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Output].Columns[new_updatedate]"
+                      name="new_updatedate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Fact_Table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Fact_Table]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].Columns[new_createdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="new_createdate"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[create_date]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Output].Columns[new_createdate]" />
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].Columns[new_updatedate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="new_updatedate"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[update_date]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Output].Columns[new_updatedate]" />
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].Columns[Vehicle_Type]"
+                      cachedDataType="i4"
+                      cachedName="Vehicle_Type"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[SKVehicles_Type]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Vehicle_Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].Columns[Journey_Purpose_of_Driver]"
+                      cachedDataType="i4"
+                      cachedName="Journey_Purpose_of_Driver"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[SKDim_Journey_Purpose_Des]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Journey_Purpose_of_Driver]" />
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].Columns[Number_of_Accidents]"
+                      cachedDataType="ui8"
+                      cachedName="Number_of_Accidents"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[Number_of_Accidents]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1].Columns[Number_of_Accidents]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[SKFact]"
+                      dataType="i4"
+                      name="SKFact" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[create_date]"
+                      dataType="dbTimeStamp"
+                      name="create_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[update_date]"
+                      dataType="dbTimeStamp"
+                      name="update_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[SKVehicles_Type]"
+                      dataType="i4"
+                      name="SKVehicles_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[SKDim_Journey_Purpose_Des]"
+                      dataType="i4"
+                      name="SKDim_Journey_Purpose_Des" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input].ExternalColumns[Number_of_Accidents]"
+                      dataType="i4"
+                      name="Number_of_Accidents" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get data for Fact_Table from NDS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Vehicles2011_2014_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+  FROM Vehicles2011_2014_No_Match 
+  WHERE trangthai = 'False' AND Vehicle_Type = 7 AND ((create_date &gt;= ? AND create_date&lt; ?) OR (update_date &gt;= ? AND update_date &lt; ?))</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{CDA26793-85EF-4E33-BB87-97658714CB33};"Parameter1:Input",{6D24AB40-68E4-43E8-8E56-2D6A7D34A0DD};"Parameter2:Input",{CDA26793-85EF-4E33-BB87-97658714CB33};"Parameter3:Input",{6D24AB40-68E4-43E8-8E56-2D6A7D34A0DD};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_NDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[create_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[create_date]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[create_date]"
+                      name="create_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[update_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[update_date]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[update_date]"
+                      name="update_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[source_sys_code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[source_sys_code]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[source_sys_code]"
+                      name="source_sys_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Accident_Index]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Accident_Index]"
+                      length="512"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Accident_Index]"
+                      name="Accident_Index"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[SKVehicle]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[SKVehicle]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[SKVehicle]"
+                      name="SKVehicle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Reference]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Reference]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Reference]"
+                      name="Vehicle_Reference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Type]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Type]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Type]"
+                      name="Vehicle_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Was_Vehicle_Left_Hand_Drive]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Was_Vehicle_Left_Hand_Drive]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Was_Vehicle_Left_Hand_Drive]"
+                      name="Was_Vehicle_Left_Hand_Drive"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Journey_Purpose_of_Driver]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]"
+                      name="Journey_Purpose_of_Driver"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Sex_of_Driver]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Sex_of_Driver]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Sex_of_Driver]"
+                      name="Sex_of_Driver"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Age_of_Driver]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Age_of_Driver]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Age_of_Driver]"
+                      name="Age_of_Driver"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Age_Band_of_Driver]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Age_Band_of_Driver]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Age_Band_of_Driver]"
+                      name="Age_Band_of_Driver"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Driver_Home_Area_Type]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Driver_Home_Area_Type]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Driver_Home_Area_Type]"
+                      name="Driver_Home_Area_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[status_code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[status_code]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[status_code]"
+                      name="status_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Accident_Index_Ref]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Accident_Index_Ref]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Accident_Index_Ref]"
+                      name="Accident_Index_Ref"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[create_date]"
+                      dataType="dbTimeStamp"
+                      name="create_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[update_date]"
+                      dataType="dbTimeStamp"
+                      name="update_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[source_sys_code]"
+                      dataType="i4"
+                      name="source_sys_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Accident_Index]"
+                      codePage="1252"
+                      dataType="str"
+                      length="512"
+                      name="Accident_Index" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[SKVehicle]"
+                      dataType="i4"
+                      name="SKVehicle" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Reference]"
+                      dataType="i4"
+                      name="Vehicle_Reference" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Vehicle_Type]"
+                      dataType="i4"
+                      name="Vehicle_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Was_Vehicle_Left_Hand_Drive]"
+                      dataType="i4"
+                      name="Was_Vehicle_Left_Hand_Drive" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Journey_Purpose_of_Driver]"
+                      dataType="i4"
+                      name="Journey_Purpose_of_Driver" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Sex_of_Driver]"
+                      dataType="i4"
+                      name="Sex_of_Driver" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Age_of_Driver]"
+                      dataType="i4"
+                      name="Age_of_Driver" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Age_Band_of_Driver]"
+                      dataType="i4"
+                      name="Age_Band_of_Driver" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Driver_Home_Area_Type]"
+                      dataType="i4"
+                      name="Driver_Home_Area_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[status_code]"
+                      dataType="i4"
+                      name="status_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].ExternalColumns[Accident_Index_Ref]"
+                      dataType="i4"
+                      name="Accident_Index_Ref" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[SKVehicle]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[SKVehicle]"
+                      name="SKVehicle" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Vehicle_Reference]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Vehicle_Reference]"
+                      name="Vehicle_Reference" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Vehicle_Type]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Vehicle_Type]"
+                      name="Vehicle_Type" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Was_Vehicle_Left_Hand_Drive]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Was_Vehicle_Left_Hand_Drive]"
+                      name="Was_Vehicle_Left_Hand_Drive" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Journey_Purpose_of_Driver]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Journey_Purpose_of_Driver]"
+                      name="Journey_Purpose_of_Driver" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Sex_of_Driver]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Sex_of_Driver]"
+                      name="Sex_of_Driver" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Age_of_Driver]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Age_of_Driver]"
+                      name="Age_of_Driver" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Age_Band_of_Driver]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Age_Band_of_Driver]"
+                      name="Age_Band_of_Driver" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Driver_Home_Area_Type]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Driver_Home_Area_Type]"
+                      name="Driver_Home_Area_Type" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Accident_Index]"
+                      codePage="1252"
+                      dataType="str"
+                      length="512"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Accident_Index]"
+                      name="Accident_Index" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[create_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[create_date]"
+                      name="create_date" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[status_code]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[status_code]"
+                      name="status_code" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[update_date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[update_date]"
+                      name="update_date" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[source_sys_code]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[source_sys_code]"
+                      name="source_sys_code" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Accident_Index_Ref]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[Accident_Index_Ref]"
+                      name="Accident_Index_Ref" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE Fact_Table
+SET Number_of_Accidents = Number_of_Accidents + 1, update_date = GETDATE()
+WHERE SKVehicles_Type = ? AND SKDim_Journey_Purpose_Des = ? </property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input].Columns[Vehicle_Type]"
+                      cachedDataType="i4"
+                      cachedName="Vehicle_Type"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Vehicle_Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input].Columns[Journey_Purpose_of_Driver]"
+                      cachedDataType="i4"
+                      cachedName="Journey_Purpose_of_Driver"
+                      externalMetadataColumnId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output].Columns[Journey_Purpose_of_Driver]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow For Fact Table in DDS_Question7.Paths[Aggregate Output 1]"
+              endId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Inputs[Derived Column Input]"
+              name="Aggregate Output 1"
+              startId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Data Flow For Fact Table in DDS_Question7.Paths[Derived Column Output]"
+              endId="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow For Fact Table in DDS_Question7.Paths[Lookup Match Output]"
+              endId="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow For Fact Table in DDS_Question7.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow For Fact Table in DDS_Question7\Aggregate.Inputs[Aggregate Input 1]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow For Fact Table in DDS_Question7.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow For NDS to Dimension in DDS_Question7"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{dd53e3fb-bb26-40c3-92f2-bdb5af34f128}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow For NDS to Dimension in DDS_Question7"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check if Journey_Purpose exists in dim"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Journey_Purpose]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Journey_Purpose]) [refTable]
+where [refTable].[SKDim_Journey_Purpose_Des] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SKDim_Journey_Purpose_Des" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Description" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[SKJourney_Purpose_of_Driver]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Inputs[Lookup Input].Columns[SKJourney_Purpose_of_Driver]"
+                      cachedDataType="i4"
+                      cachedName="SKJourney_Purpose_of_Driver"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[SKJourney_Purpose_of_Driver]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SKDim_Journey_Purpose_Des</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check if Vehicle_Type exists in dim"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Vehicles_Type]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Vehicles_Type]) [refTable]
+where [refTable].[SKVehicles_Type] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SKVehicles_Type" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Description" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[SKVehicle_Type]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Inputs[Lookup Input].Columns[SKVehicle_Type]"
+                      cachedDataType="i4"
+                      cachedName="SKVehicle_Type"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[SKVehicle_Type]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SKVehicles_Type</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dim_Journey_Purpose"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Journey_Purpose]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input].Columns[SKJourney_Purpose_of_Driver]"
+                      cachedDataType="i4"
+                      cachedName="SKJourney_Purpose_of_Driver"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input].ExternalColumns[SKDim_Journey_Purpose_Des]"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[SKJourney_Purpose_of_Driver]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input].ExternalColumns[SKDim_Journey_Purpose_Des]"
+                      dataType="i4"
+                      name="SKDim_Journey_Purpose_Des" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Dim_Vehicle_Type"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Vehicles_Type]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_Ques7_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input].Columns[SKVehicle_Type]"
+                      cachedDataType="i4"
+                      cachedName="SKVehicle_Type"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input].ExternalColumns[SKVehicles_Type]"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[SKVehicle_Type]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input].ExternalColumns[SKVehicles_Type]"
+                      dataType="i4"
+                      name="SKVehicles_Type" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get data for Dim_Journey_Purpose from NDS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Journey_Purpose_of_Driver]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_NDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[Code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="255"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[SKJourney_Purpose_of_Driver]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].ExternalColumns[SKJourney_Purpose_of_Driver]"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].Columns[SKJourney_Purpose_of_Driver]"
+                      name="SKJourney_Purpose_of_Driver"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      dataType="i4"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output].ExternalColumns[SKJourney_Purpose_of_Driver]"
+                      dataType="i4"
+                      name="SKJourney_Purpose_of_Driver" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[SKJourney_Purpose_of_Driver]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[SKJourney_Purpose_of_Driver]"
+                      name="SKJourney_Purpose_of_Driver" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Get data for Dim_Vehicle_Type from NDS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Vehicle_Type]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-LATGDUJ.QLBI_NDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[Code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      length="255"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[SKVehicle_Type]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].ExternalColumns[SKVehicle_Type]"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].Columns[SKVehicle_Type]"
+                      name="SKVehicle_Type"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      dataType="i4"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output].ExternalColumns[SKVehicle_Type]"
+                      dataType="i4"
+                      name="SKVehicle_Type" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[SKVehicle_Type]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[SKVehicle_Type]"
+                      name="SKVehicle_Type" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7.Paths[Lookup No Match Output1]"
+              endId="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow For NDS to Dimension in DDS_Question7.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get CET, LSET for DDS_Question7"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7d661d80-cc27-44cd-94da-4bf88429ee8e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get CET, LSET for DDS_Question7"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{087B5C96-D958-4986-B792-09823E502276}"
+          SQLTask:SqlStatementSource="SELECT CET, LSET&#xA;FROM Metadata_Table&#xA;WHERE Name_DataFlow = 'NDS_DDS_Question7'&#xA;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET_DDSQues7" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSET_DDSQues7" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set CET for metadata_DDS_Question7"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{26b211d2-3a05-4b74-8489-963baade579e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set CET for metadata_DDS_Question7"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{087B5C96-D958-4986-B792-09823E502276}"
+          SQLTask:SqlStatementSource="UPDATE Metadata_Table&#xA;  SET CET = GETDATE()&#xA;  WHERE Name_DataFlow = 'NDS_DDS_Question7'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LSET for DDS_Question7"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0ff82bbd-7139-41ae-8839-efba63c7278e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LSET for DDS_Question7"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{087B5C96-D958-4986-B792-09823E502276}"
+          SQLTask:SqlStatementSource="UPDATE Metadata_Table&#xA;  SET LSET = CET&#xA;  WHERE Name_DataFlow = 'NDS_DDS_Question7'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{19cbdb15-6092-4d3b-ba7e-4799b5e97c70}"
+      DTS:From="Package\Set CET for metadata_DDS_Question7"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Get CET, LSET for DDS_Question7" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{d7f2d0ad-431e-4205-82c1-73c777bbac95}"
+      DTS:From="Package\Get CET, LSET for DDS_Question7"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Data Flow For NDS to Dimension in DDS_Question7" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{44baeb62-7d7b-488a-a040-eed527d0cf9d}"
+      DTS:From="Package\Data Flow For NDS to Dimension in DDS_Question7"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Data Flow For Fact Table in DDS_Question7" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{d318ef0e-2ea8-4531-9676-67e08071fa84}"
+      DTS:From="Package\Data Flow For Fact Table in DDS_Question7"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Set LSET for DDS_Question7" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="285.333333333334,42"
+          Id="Package\Data Flow For Fact Table in DDS_Question7"
+          TopLeft="91.4285719637967,335.294121507954" />
+        <NodeLayout
+          Size="322,42"
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7"
+          TopLeft="90.0000005108967,248.882355590179" />
+        <NodeLayout
+          Size="240.666666666667,42"
+          Id="Package\Get CET, LSET for DDS_Question7"
+          TopLeft="72.8571430760987,160.176471993172" />
+        <NodeLayout
+          Size="259.666666666667,42"
+          Id="Package\Set CET for metadata_DDS_Question7"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="214.333333333334,42"
+          Id="Package\Set LSET for DDS_Question7"
+          TopLeft="98.5714292282967,425.788240098788" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="191.511904871383,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.176471993172"
+              Start="0,0"
+              End="0,50.676471993172">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.676471993172" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="193.190476409432,202.176471993172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.8095241014647,46.705883597007"
+              Start="0,0"
+              End="57.8095241014647,39.205883597007">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3529417985035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3529417985035"
+                    Point2="0,23.3529417985035"
+                    Point3="4,23.3529417985035" />
+                  <mssgle:LineSegment
+                    End="53.8095241014647,23.3529417985035" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.8095241014647,23.3529417985035"
+                    Point2="57.8095241014647,23.3529417985035"
+                    Point3="57.8095241014647,27.3529417985035" />
+                  <mssgle:LineSegment
+                    End="57.8095241014647,39.205883597007" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="251.000000510897,290.882355590179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.9047618804333,44.411765917775"
+              Start="0,0"
+              End="-16.9047618804333,36.911765917775">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2058829588875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2058829588875"
+                    Point2="0,22.2058829588875"
+                    Point3="-4,22.2058829588875" />
+                  <mssgle:LineSegment
+                    End="-12.9047618804333,22.2058829588875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.9047618804333,22.2058829588875"
+                    Point2="-16.9047618804333,22.2058829588875"
+                    Point3="-16.9047618804333,26.2058829588875" />
+                  <mssgle:LineSegment
+                    End="-16.9047618804333,36.911765917775" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="234.095238630463,377.294121507954">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28.3571427355,48.494118590834"
+              Start="0,0"
+              End="-28.3571427355,40.994118590834">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.247059295417" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.247059295417"
+                    Point2="0,24.247059295417"
+                    Point3="-4,24.247059295417" />
+                  <mssgle:LineSegment
+                    End="-24.3571427355,24.247059295417" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.3571427355,24.247059295417"
+                    Point2="-28.3571427355,24.247059295417"
+                    Point3="-28.3571427355,28.247059295417" />
+                  <mssgle:LineSegment
+                    End="-28.3571427355,40.994118590834" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow For Fact Table in DDS_Question7">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="239.333333333334,42"
+          Id="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS"
+          TopLeft="859.295235650232,85.3529405222632" />
+        <NodeLayout
+          Size="164.666666666667,41.6666666666667"
+          Id="Package\Data Flow For Fact Table in DDS_Question7\OLE DB Command"
+          TopLeft="600.185722320178,301.55294152502" />
+        <NodeLayout
+          Size="298.333333333334,41.6666666666667"
+          Id="Package\Data Flow For Fact Table in DDS_Question7\Create new values for create_date and update_date"
+          TopLeft="960.242865651724,409.65000177762" />
+        <NodeLayout
+          Size="130.333333333334,42"
+          Id="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table"
+          TopLeft="1052.60000902585,504.322551038536" />
+        <NodeLayout
+          Size="126.333333333334,41.6666666666667"
+          Id="Package\Data Flow For Fact Table in DDS_Question7\Aggregate"
+          TopLeft="1067.53572238404,297.45882384579" />
+        <NodeLayout
+          Size="793.333333333334,42"
+          Id="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one"
+          TopLeft="564.4,175.1" />
+        <EdgeLayout
+          Id="Package\Data Flow For Fact Table in DDS_Question7.Paths[Aggregate Output 1]"
+          TopLeft="1130.70238905071,339.125490512457">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.2928567323158,70.5245112651633"
+              Start="0,0"
+              End="-21.2928567323158,63.0245112651633">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.2622556325817" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.2622556325817"
+                    Point2="0,35.2622556325817"
+                    Point3="-4,35.2622556325817" />
+                  <mssgle:LineSegment
+                    End="-17.2928567323158,35.2622556325817" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.2928567323158,35.2622556325817"
+                    Point2="-21.2928567323158,35.2622556325817"
+                    Point3="-21.2928567323158,39.2622556325817" />
+                  <mssgle:LineSegment
+                    End="-21.2928567323158,63.0245112651633" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow For Fact Table in DDS_Question7.Paths[Lookup No Match Output]"
+          TopLeft="1091.95555555556,217.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.7468334951514,80.35882384579"
+              Start="0,0"
+              End="38.7468334951514,72.85882384579">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.2405747465833" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.2405747465833"
+                    Point2="0,32.2405747465833"
+                    Point3="4,32.2405747465833" />
+                  <mssgle:LineSegment
+                    End="34.7468334951514,32.2405747465833" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.7468334951514,32.2405747465833"
+                    Point2="38.7468334951514,32.2405747465833"
+                    Point3="38.7468334951514,36.2405747465833" />
+                  <mssgle:LineSegment
+                    End="38.7468334951514,72.85882384579" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-36.4329699711743,37.2405747465833,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow For Fact Table in DDS_Question7.Paths[Lookup Match Output]"
+          TopLeft="830.177777777778,217.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147.658722124266,84.45294152502"
+              Start="0,0"
+              End="-147.658722124266,76.95294152502">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8831660731043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.8831660731043"
+                    Point2="0,33.8831660731043"
+                    Point3="-4,33.8831660731043" />
+                  <mssgle:LineSegment
+                    End="-143.658722124266,33.8831660731043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143.658722124266,33.8831660731043"
+                    Point2="-147.658722124266,33.8831660731043"
+                    Point3="-147.658722124266,37.8831660731043" />
+                  <mssgle:LineSegment
+                    End="-147.658722124266,76.95294152502" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.020747780883,38.8831660731043,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow For Fact Table in DDS_Question7.Paths[OLE DB Source Output]"
+          TopLeft="978.961902316898,127.352940522263">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.8952356502317,47.7470594777368"
+              Start="0,0"
+              End="-17.8952356502317,40.2470594777368">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.8735297388684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.8735297388684"
+                    Point2="0,23.8735297388684"
+                    Point3="-4,23.8735297388684" />
+                  <mssgle:LineSegment
+                    End="-13.8952356502317,23.8735297388684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.8952356502317,23.8735297388684"
+                    Point2="-17.8952356502317,23.8735297388684"
+                    Point3="-17.8952356502317,27.8735297388684" />
+                  <mssgle:LineSegment
+                    End="-17.8952356502317,40.2470594777368" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow For Fact Table in DDS_Question7.Paths[Derived Column Output]"
+          TopLeft="1109.40953231839,451.316668444287">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.35714337412628,53.0058825942489"
+              Start="0,0"
+              End="8.35714337412628,45.5058825942489">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5029412971245" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5029412971245"
+                    Point2="0,26.5029412971245"
+                    Point3="4,26.5029412971245" />
+                  <mssgle:LineSegment
+                    End="4.35714337412628,26.5029412971245" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.35714337412628,26.5029412971245"
+                    Point2="8.35714337412628,26.5029412971245"
+                    Point3="8.35714337412628,30.5029412971245" />
+                  <mssgle:LineSegment
+                    End="8.35714337412628,45.5058825942489" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For Fact Table in DDS_Question7\Get data for Fact_Table from NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For Fact Table in DDS_Question7\Fact_Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For Fact Table in DDS_Question7\Check if the record already exists in fact table and if yes then number of accidents of the record which has the same values for all columns rises by one">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Fact_Table]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow For NDS to Dimension in DDS_Question7">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="274.666666666667,42"
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS"
+          TopLeft="1173.08801274826,66.9949573856736" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim"
+          TopLeft="1186.91249571658,177.764708263239" />
+        <NodeLayout
+          Size="165.666666666667,42"
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type"
+          TopLeft="1222.57780519114,282.78151679534" />
+        <EdgeLayout
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7.Paths[OLE DB Source Output]"
+          TopLeft="1309.66692089909,108.994957385674">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.7697508775654"
+              Start="0,0"
+              End="0,61.2697508775654">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.2697508775654" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7.Paths[Lookup No Match Output]"
+          TopLeft="1307.16181712053,219.764708263239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.016808532101"
+              Start="0,0"
+              End="0,55.516808532101">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.516808532101" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,21.9537167660505,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="293,42"
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS"
+          TopLeft="771.004685406435,67.0037390175623" />
+        <NodeLayout
+          Size="262.333333333334,42"
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim"
+          TopLeft="784.829168374755,177.773489895127" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose"
+          TopLeft="820.494477849315,282.790298427229" />
+        <EdgeLayout
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7.Paths[OLE DB Source Output1]"
+          TopLeft="916.750260223928,109.003739017562">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.7697508775651"
+              Start="0,0"
+              End="0,61.2697508775651">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.2697508775651" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow For NDS to Dimension in DDS_Question7.Paths[Lookup No Match Output1]"
+          TopLeft="914.245156445368,219.773489895127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.0168085321013"
+              Start="0,0"
+              End="0,55.5168085321013">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5168085321013" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,21.9537167660506,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Vehicle_Type from NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Vehicle_Type exists in dim">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Vehicles_Type]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Vehicle_Type">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For NDS to Dimension in DDS_Question7\Get data for Dim_Journey_Purpose from NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For NDS to Dimension in DDS_Question7\Check if Journey_Purpose exists in dim">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Journey_Purpose]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow For NDS to Dimension in DDS_Question7\Dim_Journey_Purpose">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
